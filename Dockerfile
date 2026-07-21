@@ -8,15 +8,15 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 # Copy all csproj files and restore as distinct layers
-COPY ["ErpSystem.Api/ErpSystem.Api.csproj", "ErpSystem.Api/"]
-COPY ["ErpSystem.Application/ErpSystem.Application.csproj", "ErpSystem.Application/"]
-COPY ["ErpSystem.Domain/ErpSystem.Domain.csproj", "ErpSystem.Domain/"]
-COPY ["ErpSystem.Infrastructure/ErpSystem.Infrastructure.csproj", "ErpSystem.Infrastructure/"]
-RUN dotnet restore "./ErpSystem.Api/ErpSystem.Api.csproj"
+COPY ["backend/ErpSystem.Api/ErpSystem.Api.csproj", "backend/ErpSystem.Api/"]
+COPY ["backend/ErpSystem.Application/ErpSystem.Application.csproj", "backend/ErpSystem.Application/"]
+COPY ["backend/ErpSystem.Domain/ErpSystem.Domain.csproj", "backend/ErpSystem.Domain/"]
+COPY ["backend/ErpSystem.Infrastructure/ErpSystem.Infrastructure.csproj", "backend/ErpSystem.Infrastructure/"]
+RUN dotnet restore "./backend/ErpSystem.Api/ErpSystem.Api.csproj"
 
 # Copy the remaining files and build
-COPY . .
-WORKDIR "/src/ErpSystem.Api"
+COPY ["backend/", "backend/"]
+WORKDIR "/src/backend/ErpSystem.Api"
 RUN dotnet build "./ErpSystem.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
