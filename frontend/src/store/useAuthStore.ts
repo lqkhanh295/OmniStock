@@ -15,6 +15,7 @@ interface AuthState {
   logout: () => void;
   isAdmin: () => boolean;
   isCustomer: () => boolean;
+  setUser: (user: User) => void;
 }
 
 export const useAuthStore = create<AuthState>()(
@@ -46,7 +47,8 @@ export const useAuthStore = create<AuthState>()(
       isCustomer: () => {
         const user = get().user;
         return user?.roles.includes('Customer') ?? false;
-      }
+      },
+      setUser: (user: User) => set({ user })
     }),
     {
       name: 'auth-storage',
