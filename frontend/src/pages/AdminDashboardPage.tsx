@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from '../api';
-import { Settings, Users, Package, ShoppingCart, BarChart3, AlertTriangle, Trash2, Edit2, Plus } from 'lucide-react';
+import { Package, ShoppingCart, BarChart3, AlertTriangle, Trash2, Edit2, Plus } from 'lucide-react';
 
 export default function AdminDashboardPage() {
   const [activeTab, setActiveTab] = useState('inventory');

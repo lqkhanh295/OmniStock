@@ -9,7 +9,6 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const login = useAuthStore(state => state.login);
-  const isAdmin = useAuthStore(state => state.isAdmin);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

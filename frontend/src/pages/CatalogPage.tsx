@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import api from '../api';
 import { useCartStore } from '../store/useCartStore';
-import { Package, Plus, AlertTriangle } from 'lucide-react';
+import { Package, Plus } from 'lucide-react';
 
 interface Product {
   id: number;
